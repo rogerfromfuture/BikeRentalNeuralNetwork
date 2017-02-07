@@ -69,7 +69,7 @@ for e in range(epochs):
     losses['train'].append(train_loss)
     losses['validation'].append(val_loss)
 
-
+plt.interactive(True)
 plt.plot(losses['train'], label='Training loss')
 plt.plot(losses['validation'], label='Validation loss')
 plt.legend()
