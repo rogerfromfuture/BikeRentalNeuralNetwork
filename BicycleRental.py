@@ -5,7 +5,7 @@ import sys
 from NeuralNetwork import NeuralNetwork
 from NeuralNetwork import MSE
 
-data_path = 'hour.csv'
+data_path = 'Bike-Sharing-Dataset/hour.csv'
 rides = pd.read_csv(data_path)
 
 # Make categorical data binary
@@ -42,7 +42,7 @@ train_features, train_targets = features[:-60*24], targets[:-60*24]
 val_features, val_targets = features[-60*24:], targets[-60*24:]
 
 # Set the hyper parameters here ###
-epochs = 5000
+epochs = 100
 learning_rate = 0.1
 hidden_nodes = 5
 output_nodes = 1
