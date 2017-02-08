@@ -48,11 +48,11 @@ class NeuralNetwork(object):
 
         # Calculate error gradient in hidden units
         hidden_errors = np.dot(output_errors, self.weights_hidden_to_output)
-        hidden_grad = hidden_errors.T * hidden_outputs * (1 - hidden_outputs)
+        hidden_grad = hidden_outputs * (1 - hidden_outputs)
 
         # Update the weights
         self.weights_hidden_to_output += self.lr * np.dot(output_errors, hidden_outputs.T)
-        self.weights_input_to_hidden += self.lr * np.dot(hidden_grad, inputs.T)
+        self.weights_input_to_hidden += self.lr * np.dot(hidden_errors.T * hidden_grad, inputs.T)
 
     def run(self, inputs_list):
         # Convert inputs list to 2d array

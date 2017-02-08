@@ -47,11 +47,11 @@ class NeuralNetwork(object):
 
         # Calculate error gradient in hidden units
         hidden_errors = np.dot(self.weights_hidden_to_output, output_errors)
-        hidden_grad = hidden_errors * hidden_outputs * (1 - hidden_outputs)
+        hidden_grad = hidden_outputs * (1 - hidden_outputs)
 
         # Update the weights
         self.weights_hidden_to_output += self.lr * output_errors * hidden_outputs
-        self.weights_input_to_hidden += self.lr * hidden_grad * inputs[:, None]
+        self.weights_input_to_hidden += self.lr * hidden_errors * hidden_grad * inputs[:, None]
 
     def run(self, inputs_list):
         # Run a forward pass through the network
