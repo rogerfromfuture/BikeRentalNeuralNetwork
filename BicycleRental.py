@@ -43,8 +43,8 @@ val_features, val_targets = features[-60*24:], targets[-60*24:]
 
 # Set the hyper parameters here ###
 epochs = 1000
-learning_rate = 0.1
-hidden_nodes = 5
+learning_rate = 0.05
+hidden_nodes = 50
 output_nodes = 1
 
 N_i = train_features.shape[1]
